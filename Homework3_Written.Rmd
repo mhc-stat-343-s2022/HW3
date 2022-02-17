@@ -1,0 +1,109 @@
+---
+title: "Homework 3: Written Part"
+subtitle: "STAT 343: Mathematical Statistics"
+output:
+  pdf_document:
+    keep_tex: true
+header-includes:
+   - \usepackage{booktabs}
+geometry: margin=1.5cm
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+\def\simiid{\stackrel{{\mbox{\text{\tiny i.i.d.}}}}{\sim}}
+
+# Details
+
+### How to Write Up
+
+The written part of this assignment can be either typeset using latex or hand written.
+
+### Grading
+
+5% of your grade on this assignment is for turning in something legible and organized.
+
+An additional 15% of your grade is for completion.  A quick pass will be made to ensure that you've made a reasonable attempt at all problems.
+
+In grading these problems, an emphasis will be placed on full explanations of your thought process.  You don't need to write more than a few sentences for any given problem, but you should write complete sentences!  Understanding and explaining the reasons behind what you are doing is at least as important as solving the problems correctly.
+
+
+### Collaboration
+
+You are allowed to work with others on this assignment, but you must complete and submit your own write up.  You should not copy large blocks of code or written text from another student.
+
+### Sources
+
+You may refer to our text, Wikipedia, and other online sources.  All sources you refer to must be cited in the space I have provided at the end of this problem set.
+
+# Problem I: Cheating
+
+This problem is adapted from an exercise in "Introduction to Statistical Thought" by Michael Lavine (2013).  Lavine writes:
+
+> Some researchers are interested in $\theta$, the proportion of students who ever cheat on exams.  They randomly sample 100 students and ask "Have you ever cheated on a college exam?"  Naturally, some students lie.  Let $\phi_1$ be the proportion of non-cheaters who lie and $\phi_2$ be the proportion of cheaters who lie.  Let $X$ be the number of students who answer "Yes".
+Define the following events:
+
+ * $A$ is the event that a randomly sampled student actually has cheated on a college exam.
+ * $B$ is the event that a randomly sampled student says they have cheated on a college exam.  (They answer "Yes".)
+
+### (1) Based on the problem statement above, write the following probabilities in terms of the unknown parameters $\theta$, $\phi_1$, and $\phi_2$.
+
+ * $P(A)$: the probability that a randomly sampled student has cheated on a college exam
+
+
+
+ * $P(B | A^c)$: the probability that a randomly sampled student says they have cheated on a college exam, given that they actually have not cheated
+
+
+
+ * $P(B^c | A^c)$: the probability that a randomly sampled student says they have not cheated on a college exam, given that they actually have not cheated
+
+
+
+ * $P(B | A)$: the probability that a randomly sampled student says they have cheated on a college exam, given that they actually have cheated
+
+
+
+ * $P(B^c | A)$: the probability that a randomly sampled student says they have not cheated on a college exam, given that they actually have cheated
+
+
+
+
+### (2) Find P(B), the probability that a randomly sampled student says they have cheated on a college exam.
+
+
+
+### (3) Specify a reasonable probability model for $X$, the number of the 100 students in the survey who answer "Yes".  You may assume that the survey responses are independent; for example, the respondents are not friends and are not planning their survey responses together.  Specify all parameters for your model in terms of $\theta$, $\phi_1$, and $\phi_2$.
+
+
+
+### (4) Write down a formula for the pdf of $X | \Theta, \Phi_1, \Phi_2$ based on your model in part (3).  Note that you will conduct the survey of 100 students once and record $X = x$.  (You observe a single $x$, not $x_1, \ldots, x_{100}$.)
+
+
+
+### (5) Suppose you have specified independent Beta prior distributions for the unknown parameters $\theta$, $\phi_1$, and $\phi_2$: $\Theta \sim \text{Beta}(\alpha_{0}, \beta_{0})$, $\Phi_1 \sim \text{Beta}(\alpha_{1}, \beta_{1})$, and $\Phi_2 \sim \text{Beta}(\alpha_{2}, \beta_{2})$.  In this notation, $\alpha_{0}$, $\beta_{0}$, $\alpha_{1}$, $\beta_{1}$, $\alpha_{2}$, and $\beta_{2}$ are numbers the analyst picks to specify the priors for each of the three parameters $\theta$, $\phi_1$, and $\phi_2$.  Write down formulas for the pdfs of these three prior distributions.  You will be writing down three separate pdfs involving $\theta$, $\phi_1$, $\phi_2$, $\alpha_{0}$, $\beta_{0}$, $\alpha_{1}$, $\beta_{1}$, $\alpha_{2}$, and $\beta_{2}$.
+
+
+
+### (6) Suppose you now observe $X = x$.  Write down a formula for the pdf of the joint posterior of $\Theta$, $\Phi_1$, and $\Phi_2$ given $X = x$, up to a multiplicative constant of proportionality.
+
+
+
+### (7) Your real goal is to use the survey data to learn about $\theta$, the proportion of students who have cheated.  $\phi_1$ and $\phi_2$ are not of direct interest, they were just necessary to get a reasonable model for the data.  (Parameters like this are sometimed referred to as "nuisance parameters".)
+
+#### a. Suppose you want to calculate the posterior mean for the proportion of students who have cheated.  Write this as a suitable integral of the joint posterior pdf $f_{\Theta, \Phi_1, \Phi_2 | X}(\theta, \phi_1, \phi_2 | x)$.
+
+Hint: How can you find $f_{\Theta | X}(\theta | x)$ from $f_{\Theta, \Phi_1, \Phi_2 | X}(\theta, \phi_1, \phi_2 | x)$?
+
+
+
+#### b. Suppose you have a sample $(\theta_1, {\phi_1}_1, {\phi_2}_1), \ldots, (\theta_m, {\phi_1}_m, {\phi_2}_m)$ from the joint posterior distribution of $\Theta$, $\Phi_1$, and $\Phi_2$ given $X$.  Write how you could approximate the integral from part a using Monte Carlo integration.
+
+#### c. Suppose you want to calculate the posterior probability that less than half of students have cheated.  Write this as a suitable integral of the joint posterior pdf $f_{\Theta, \Phi_1, \Phi_2 | X}(\theta, \phi_1, \phi_2 | x)$.  Set it up so you have an indicator function as part of the integrand (on the inside of the integral).
+
+
+
+#### d. Write how you could approximate the integral from part c using Monte Carlo integration.
